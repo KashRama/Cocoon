@@ -28,7 +28,9 @@ function Q1() {
             })
         }  
         fetchQ()
-    }, [])      
+    }, [])    
+    
+    var incChoices = [incA1, incA2, incA3];
 
     const [correct, setAnswer] = useState(0);
     useEffect(() => {
@@ -85,27 +87,27 @@ function Q1() {
                 </h3>
                 <DelayedLink delay={500} to='/q2'>
                 <button className="answers" onClick={changeColor1} style={{backgroundColor:color1}}>
-                    {chooseAnswer(1, correct, correctAnswer, incA1, incA2, incA3)}
+                    {chooseAnswer(1, correct, correctAnswer, incChoices)}
                 </button>
                 </DelayedLink>
                 <p>
                 <DelayedLink delay={500} to='/q2'>
                 <button className="answers" onClick={changeColor2} style={{backgroundColor:color2}}>
-                    {chooseAnswer(2, correct, correctAnswer, incA1, incA2, incA3)}
+                    {chooseAnswer(2, correct, correctAnswer, incChoices)}
                 </button>
                 </DelayedLink>
                 </p>
                 <p>
                 <DelayedLink delay={500} to='/q2'>
                 <button className="answers" onClick={changeColor3} style={{backgroundColor:color3}}>
-                    {chooseAnswer(3, correct, correctAnswer, incA1, incA2, incA3)}
+                    {chooseAnswer(3, correct, correctAnswer, incChoices)}
                 </button>
                 </DelayedLink>
                 </p>
                 <p>
                 <DelayedLink delay={500} to='/q2'>
                 <button className="answers" onClick={changeColor4} style={{backgroundColor:color4}}>
-                    {chooseAnswer(4, correct, correctAnswer, incA1, incA2, incA3)}
+                    {chooseAnswer(4, correct, correctAnswer, incChoices)}
                 </button>
                 </DelayedLink>
                 </p>
@@ -114,55 +116,33 @@ function Q1() {
     );
 }
 
-function chooseAnswer(choice, correct, correctAnswer, incA1, incA2, incA3){
+function chooseAnswer(choice, correct, correctAnswer, incChoices){
     var answer;
-    var choices = [incA1, incA2, incA3];
-    let index = -1;
-    if(choice === 1){
-        if(choice === correct){
-            answer = correctAnswer;
-        }
-        else{
-            index = generateIncorrectAnswer(3);
-            answer = choices[index];
-            choices.splice(index, 1)
-        }
+    var possibleChoices = [1, 2, 3, 4];
+    if(choice === correct){
+        answer = correctAnswer;
     }
-    if(choice === 2){
-        if(choice === correct){
-            answer = correctAnswer;
-        }
-        else{
-            index = generateIncorrectAnswer(2);
-            answer = choices[index];
-            choices.splice(index, 1)
-        }
+    else if(choice === possibleChoices[0]){
+        answer = incChoices[0]
+        incChoices.splice(0, 1)
     }
-    if(choice === 3){
-        if(choice === correct){
-            answer = correctAnswer;
-        }
-        else{
-            answer = choices[0];
-        }
+    else if(choice === possibleChoices[1]){
+        answer = incChoices[0]
+        incChoices.splice(0, 1)
     }
-    if(choice === 4){
-        if(choice === correct){
-            answer = correctAnswer;
-        }
-        else{
-            answer = choices[2];
-        }
+    else if(choice === possibleChoices[2]){
+        answer = incChoices[0]
+        incChoices.splice(0, 1)
+    }
+    else if(choice === possibleChoices[3]){
+        answer = incChoices[0]
+        incChoices.splice(0, 1)    
     }
     return (answer);
 }
 
 function generateCorrectAnswer(){
     return Math.floor(Math.random() * 4) + 1;
-}
-
-function generateIncorrectAnswer(val){
-    return Math.floor(Math.random() * val);
 }
 
 function checkAnswer(selected, correct){
