@@ -17,14 +17,14 @@ function Q1() {
 
     useEffect(() => {
         function fetchQ(){
-            axios.get('https://opentdb.com/api.php?amount=1&category=19&type=multiple', {
+            axios.get('https://the-trivia-api.com/api/questions?categories=sport_and_leisure&limit=1', {
             }).then(res => {
                 console.log(res.data)
-                setQuestion(res.data.results[0].question)
-                setCorrectAnswer(res.data.results[0].correct_answer)
-                setincA1(res.data.results[0].incorrect_answers[0])
-                setincA2(res.data.results[0].incorrect_answers[1])
-                setincA3(res.data.results[0].incorrect_answers[2])
+                setQuestion(res.data[0].question)
+                setCorrectAnswer(res.data[0].correctAnswer)
+                setincA1(res.data[0].incorrectAnswers[0])
+                setincA2(res.data[0].incorrectAnswers[1])
+                setincA3(res.data[0].incorrectAnswers[2])
             })
         }  
         fetchQ()
@@ -77,7 +77,7 @@ function Q1() {
                 exit = {{x: -window.innerWidth, transition: {duration: 0.5}}}
             >
                 <header className="topic">
-                    Math
+                    Sports
                 </header>
                 <h2 className="line"> ____________</h2>
                 <h3 className="question">

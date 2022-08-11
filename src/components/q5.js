@@ -74,7 +74,7 @@ function Q5() {
                 exit = {{x: -window.innerWidth, transition: {duration: 0.5}}}
             >
                 <header className="topic">
-                    World History
+                    Miscellaneous ;)
                 </header>
                 <h2 className="line"> ____________</h2>
                 <h3 className="question">
