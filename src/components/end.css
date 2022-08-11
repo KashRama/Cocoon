@@ -1,0 +1,34 @@
+.end{
+    text-align: center;
+    background-color: #000000;
+    min-height: 600px;
+    height: 100%;
+}
+
+.end-message{
+    font-size: 40px;
+    font-family: 'Times New Roman';
+    color: #FFFFFF;
+    margin-bottom: -40px;
+}
+
+.score{
+    font-size: 80px;  
+    font-family: 'Times New Roman';
+    color: #FFFFFF;
+}
+
+.reaction{
+    font-size: 25px;
+    font-family: 'Times New Roman';
+    color: #FFFFFF;
+    margin-top: -80px;
+}
+
+.return-home{
+    background-color: #FFFFFF;
+    color: black;
+    border: black;
+    margin-top: 5px;
+    margin-left: -1050px;
+}
